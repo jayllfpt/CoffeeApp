@@ -6,7 +6,6 @@ package controller;
 
 import dal.AccountDAO;
 import java.io.IOException;
-import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.Cookie;
@@ -26,7 +25,7 @@ public class LoginServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        request.getRequestDispatcher("login.jsp").forward(request, response);
+            request.getRequestDispatcher("login.jsp").forward(request, response);
     }
 
     @Override
@@ -35,38 +34,29 @@ public class LoginServlet extends HttpServlet {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
         String r = request.getParameter("rem");
-        
-        Cookie cu = new Cookie("cuser", username);
-        Cookie cp = new Cookie("cpass", password);
-        Cookie cr = new Cookie("crem", r);
-        if (r != null) {
-            //check
-            cu.setMaxAge(60 * 60 * 24 * 7);
-            cp.setMaxAge(60 * 60 * 24 * 7);
-            cr.setMaxAge(60 * 60 * 24 * 7);
 
-        } else {
-            //no check
-            cu.setMaxAge(0);
-            cp.setMaxAge(0);
-            cr.setMaxAge(0);
-        }
-        //save browser
-        response.addCookie(cu);
-        response.addCookie(cp);
-        response.addCookie(cr);
         AccountDAO dao = new AccountDAO();
         Account acc = dao.checkLogin(username, password);
         HttpSession session = request.getSession();
         if (acc == null) {
             request.getRequestDispatcher("login.jsp").forward(request, response);
         } else {
+//            Cookie cu = new Cookie("cuser", username);
+//            Cookie crole = new Cookie("crole", String.valueOf(acc.getRoleID()));
+//            if (r != null) {
+//                //check save
+//                cu.setMaxAge(60 * 60 * 24);
+//                crole.setMaxAge(60 * 60 * 24);
+//                response.addCookie(cu);
+//                response.addCookie(crole);
+//            }
+
             session.setAttribute("account", acc);
             if (acc.getRoleID() == 1) {
                 // admin
-                response.sendRedirect("admin");
+                response.sendRedirect("home");
 
-            } else{
+            } else {
                 // customer
                 response.sendRedirect("home");
             }
@@ -74,11 +64,6 @@ public class LoginServlet extends HttpServlet {
 
     }
 
-    /**
-     * Returns a short description of the servlet.
-     *
-     * @return a String containing servlet description
-     */
     @Override
     public String getServletInfo() {
         return "Short description";
