@@ -17,7 +17,7 @@ import model.Item;
  */
 public class ItemDAO extends DBContext {
 
-    public List<Item> getItemsByTypeID(int typeID) {
+    public List<Item> getItemsByTypeID(int typeID, String key, String typekey) {
         List<Item> list = new ArrayList<>();
         String sql = "SELECT [itemID]\n"
                 + "      ,[itemName]\n"
@@ -33,6 +33,14 @@ public class ItemDAO extends DBContext {
         if (typeID != 0) {
             sql += " and [typeID] = " + typeID;
         }
+        if (key != null) {
+            if (typekey.equals("type")) {
+                sql += " and typeID in (select typeID from type where typeName like '%" + key + "%')";
+            } else if (typekey.equals("item")) {
+                sql += " and itemName like '%" + key + "%'";
+            }
+        }
+
         try {
             PreparedStatement st = connection.prepareStatement(sql);
             ResultSet rs = st.executeQuery();
@@ -47,4 +55,5 @@ public class ItemDAO extends DBContext {
         }
         return list;
     }
+
 }

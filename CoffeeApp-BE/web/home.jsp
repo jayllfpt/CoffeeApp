@@ -14,12 +14,22 @@
     </head>
     <body>
         <h1>Home ${sessionScope.account.empLName}</h1>
+        <form action="home">
+            <input type="text" name="searchkey" placeholder="Enter..."/>
+            <select name="typekey" >
+                <option value="type">Type</option>
+                <option value="item">Item</option>
+            </select>
+            <input type="submit" value="Search"/>
+        </form>
+        <br/>
         <jsp:useBean id="db" class="dal.TypeDAO"/>
+        <a href="?typeid=${0}">All</a>
         <c:forEach items="${db.getAll()}" var="t">
             <a href="?typeid=${t.typeID}">${t.typeName}</a>
         </c:forEach>
         <c:forEach items="${requestScope.item}" var="i">
-                <p>${i.itemName}</p>
+            <p>${i.itemName}</p>
         </c:forEach>
 
     </body>

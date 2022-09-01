@@ -2,7 +2,6 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
  */
-
 package controller;
 
 import dal.ItemDAO;
@@ -22,34 +21,38 @@ import model.Type;
  *
  * @author tklin
  */
-@WebServlet(name="ItemServlet", urlPatterns={"/home"})
+@WebServlet(name = "ItemServlet", urlPatterns = {"/home"})
 public class ItemServlet extends HttpServlet {
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
-    throws ServletException, IOException {
-        
+            throws ServletException, IOException {
 //        TypeDAO typedao = new TypeDAO();
 //        List<Type> typelist = typedao.getAll();
 //        request.setAttribute("type", typelist);
-        
+
         String txtTypeID = request.getParameter("typeid");
+        String searchkey = request.getParameter("searchkey");
+        String typekey = request.getParameter("typekey");
         int typeID;
         try {
             typeID = Integer.parseInt(txtTypeID);
-            ItemDAO itemdao = new ItemDAO();
-            List<Item> itemlist = itemdao.getItemsByTypeID(typeID);
-            request.setAttribute("item", itemlist);
         } catch (NumberFormatException e) {
+            typeID = 0;
             System.out.println(e);
-        }
-        request.getRequestDispatcher("home.jsp").forward(request, response);
-        
-    } 
 
+        }
+        ItemDAO itemdao = new ItemDAO();
+        List<Item> itemlist = itemdao.getItemsByTypeID(typeID, searchkey, typekey);
+        request.setAttribute("item", itemlist);
+
+        request.getRequestDispatcher("home.jsp").forward(request, response);
+
+    }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
-    throws ServletException, IOException {
+            throws ServletException, IOException {
     }
 
     @Override
