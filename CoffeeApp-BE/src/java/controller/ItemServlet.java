@@ -55,7 +55,5 @@ public class ItemServlet extends HttpServlet {
     @Override
     public String getServletInfo() {
         return "Short description";
-    }// </editor-fold>
-    
-    zczxczxc
+    }
 }
