@@ -11,25 +11,25 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import DTO.Type;
+import java.sql.Connection;
 
 /**
  *
  * @author tklin
  */
-public class TypeDAO extends DBUtils{
-    public List<Type> getAll(){
+public class TypeDAO {
+
+    public List<Type> getAll() throws Exception {
         List<Type> list = new ArrayList<>();
         String sql = "select * from type";
-        try {
-            PreparedStatement st = connection.prepareStatement(sql);
-            ResultSet rs = st.executeQuery();
-            while(rs.next()){
-                Type t = new Type(rs.getInt("typeID"), rs.getString("typeName"));
-                list.add(t);
-            }
-        } catch (SQLException e) {
-            System.out.println(e);
-        }       
+        Connection cn = DBUtils.makeConnection();
+        PreparedStatement st = cn.prepareStatement(sql);
+        ResultSet rs = st.executeQuery();
+        while (rs.next()) {
+            Type t = new Type(rs.getInt("typeID"), rs.getString("typeName"));
+            list.add(t);
+        }
+        cn.close();
         return list;
     }
 }

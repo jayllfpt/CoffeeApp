@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
  */
-package controller;
+package servlets;
 
 import DAO.ItemDAO;
 import DAO.TypeDAO;
@@ -15,8 +15,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.List;
-
-
 
 /**
  *
@@ -44,10 +42,13 @@ public class ItemServlet extends HttpServlet {
 
         }
         ItemDAO itemDAO = new ItemDAO();
-        List<Item> itemlist = itemDAO.getItemsByTypeID(typeID, searchkey, typekey);
-        request.setAttribute("item", itemlist);
-
-        request.getRequestDispatcher("home.jsp").forward(request, response);
+        try {
+            List<Item> itemlist = itemDAO.getItemsByTypeID(typeID, searchkey, typekey);
+            request.setAttribute("item", itemlist);
+            request.getRequestDispatcher("home.jsp").forward(request, response);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
     }
 

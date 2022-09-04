@@ -2,9 +2,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
  */
-package controller;
+package servlets;
 
 import DAO.AccountDAO;
+import DAO.ShopDAO;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -14,6 +15,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import DTO.Account;
+import DTO.Shop;
 
 /**
  *
@@ -36,12 +38,23 @@ public class LoginServlet extends HttpServlet {
         String password = request.getParameter("passwordtxt");
         String r = request.getParameter("rem");
 
-        AccountDAO dao = new AccountDAO();
-        Account acc = dao.getAccount(shopname, username, password);
-        HttpSession session = request.getSession();
-        if (acc == null) {
-            request.getRequestDispatcher("login.jsp").forward(request, response);
-        } else {
+        try {
+            Shop shop = ShopDAO.getShop(shopname);
+            if (shop == null) {
+                request.setAttribute("checkShop", "false");
+                request.getRequestDispatcher("login.jsp").forward(request, response);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        try {
+            Account acc = AccountDAO.getAccount(shopname, username, password);
+            HttpSession session = request.getSession();
+            if (acc == null) {
+                request.setAttribute("checkAcc", "false");
+                request.getRequestDispatcher("login.jsp").forward(request, response);
+            } else {
 //            Cookie cu = new Cookie("cuser", username);
 //            Cookie crole = new Cookie("crole", String.valueOf(acc.getRoleID()));
 //            if (r != null) {
@@ -52,15 +65,18 @@ public class LoginServlet extends HttpServlet {
 //                response.addCookie(crole);
 //            }
 
-            session.setAttribute("account", acc);
-            if (acc.getRoleID() == 1) {
-                // admin
-                response.sendRedirect("home.jsp");
+                session.setAttribute("account", acc);
+                if (acc.getRoleID() == 1) {
+                    // admin
+                    response.sendRedirect("home.jsp");
 
-            } else {
-                // customer
-                response.sendRedirect("home.jsp");
+                } else {
+                    // customer
+                    response.sendRedirect("home.jsp");
+                }
             }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
 
     }

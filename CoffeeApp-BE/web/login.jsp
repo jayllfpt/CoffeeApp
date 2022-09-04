@@ -13,6 +13,21 @@
     </head>
     <body>
         <h1>Login</h1>
+        <% 
+            String checkShop = (String)request.getAttribute("checkShop");
+            if(checkShop=="false"){ %> 
+                <p>Không tìm thấy tên Shop</p>
+        <%
+            }
+            String checkAcc = (String)request.getAttribute("checkAcc");
+            if (checkAcc!=null && checkShop == null){
+                if(checkAcc=="false"){ %> 
+                <p>Không tìm thấy nhân viên</p>
+        <%
+                }
+            }
+
+        %>
         <form action="LoginServlet" method="post">
             Tên gian hàng: <input type="text" name="shopnametxt"/>
             <br/>
