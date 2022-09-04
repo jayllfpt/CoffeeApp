@@ -23,7 +23,7 @@
             <input type="submit" value="Search"/>
         </form>
         <br/>
-        <jsp:useBean id="db" class="dal.TypeDAO"/>
+        <jsp:useBean id="db" class="DAO.TypeDAO"/>
         <a href="?typeid=${0}">All</a>
         <c:forEach items="${db.getAll()}" var="t">
             <a href="?typeid=${t.typeID}">${t.typeName}</a>

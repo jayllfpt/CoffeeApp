@@ -4,8 +4,9 @@
  */
 package controller;
 
-import dal.ItemDAO;
-import dal.TypeDAO;
+import DAO.ItemDAO;
+import DAO.TypeDAO;
+import DTO.Item;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -14,8 +15,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.List;
-import model.Item;
-import model.Type;
+
+
 
 /**
  *
@@ -42,8 +43,8 @@ public class ItemServlet extends HttpServlet {
             System.out.println(e);
 
         }
-        ItemDAO itemdao = new ItemDAO();
-        List<Item> itemlist = itemdao.getItemsByTypeID(typeID, searchkey, typekey);
+        ItemDAO itemDAO = new ItemDAO();
+        List<Item> itemlist = itemDAO.getItemsByTypeID(typeID, searchkey, typekey);
         request.setAttribute("item", itemlist);
 
         request.getRequestDispatcher("home.jsp").forward(request, response);
