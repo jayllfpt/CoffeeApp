@@ -4,6 +4,7 @@
  */
 package DAO;
 
+import utils.DBUtils;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -15,7 +16,7 @@ import DTO.Item;
  *
  * @author tklin
  */
-public class ItemDAO extends DBContext {
+public class ItemDAO extends DBUtils {
 
     public List<Item> getItemsByTypeID(int typeID, String key, String typekey) {
         List<Item> list = new ArrayList<>();

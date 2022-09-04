@@ -4,6 +4,7 @@
  */
 package DAO;
 
+import utils.DBUtils;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -15,7 +16,7 @@ import DTO.Type;
  *
  * @author tklin
  */
-public class TypeDAO extends DBContext{
+public class TypeDAO extends DBUtils{
     public List<Type> getAll(){
         List<Type> list = new ArrayList<>();
         String sql = "select * from type";

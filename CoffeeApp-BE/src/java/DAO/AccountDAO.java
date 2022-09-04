@@ -4,6 +4,7 @@
  */
 package DAO;
 
+import utils.DBUtils;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -13,7 +14,7 @@ import DTO.Account;
  *
  * @author tklin
  */
-public class AccountDAO extends DBContext {
+public class AccountDAO extends DBUtils {
 
     public Account getAccount(String shopname, String username, String password) {
         String sql = "SELECT empID, empFName, empLName, empPhone, empAddress, username, password, empStatus, acc.shopID, roleID\n"
