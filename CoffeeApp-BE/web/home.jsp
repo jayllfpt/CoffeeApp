@@ -14,7 +14,7 @@
     </head>
     <body>
         <h1>Home ${sessionScope.account.empLName}</h1>
-        <form action="home">
+        <form action="ItemServlet">
             <input type="text" name="searchkey" placeholder="Enter..."/>
             <select name="typekey" >
                 <option value="type">Type</option>

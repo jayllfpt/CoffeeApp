@@ -13,10 +13,12 @@
     </head>
     <body>
         <h1>Login</h1>
-        <form action="login" method="post">
-            Enter username: <input type="text" name="username"/>
+        <form action="LoginServlet" method="post">
+            Tên gian hàng: <input type="text" name="shopnametxt"/>
             <br/>
-            Enter password: <input type="text" name="password"/>
+            Tên đăng nhập: <input type="text" name="usernametxt"/>
+            <br/>
+            Mật khẩu: <input type="password" name="passwordtxt"/>
             <br/>
             <input type="checkbox" name="rem" value="ON"/>Remember me<br/>
             <input type="submit" value="Login"/>

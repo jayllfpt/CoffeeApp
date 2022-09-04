@@ -25,18 +25,19 @@ public class LoginServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-            request.getRequestDispatcher("login.jsp").forward(request, response);
+        request.getRequestDispatcher("login.jsp").forward(request, response);
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String username = request.getParameter("username");
-        String password = request.getParameter("password");
+        String shopname = request.getParameter("shopnametxt");
+        String username = request.getParameter("usernametxt");
+        String password = request.getParameter("passwordtxt");
         String r = request.getParameter("rem");
 
         AccountDAO dao = new AccountDAO();
-        Account acc = dao.checkLogin(username, password);
+        Account acc = dao.getAccount(shopname, username, password);
         HttpSession session = request.getSession();
         if (acc == null) {
             request.getRequestDispatcher("login.jsp").forward(request, response);
@@ -54,11 +55,11 @@ public class LoginServlet extends HttpServlet {
             session.setAttribute("account", acc);
             if (acc.getRoleID() == 1) {
                 // admin
-                response.sendRedirect("home");
+                response.sendRedirect("home.jsp");
 
             } else {
                 // customer
-                response.sendRedirect("home");
+                response.sendRedirect("home.jsp");
             }
         }
 
