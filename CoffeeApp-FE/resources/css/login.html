@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>JSP Page</title>
+        <style> 
+            body{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            .box-center{
+                margin-top: 150px;
+                border-radius: 5px;
+                box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+                text-align: center;
+                width: 350px;
+                height: 400px;              
+            }
+            
+            .input-login{
+                padding: 0px 30px;
+            }
+            .inline{
+                display: flex;
+                justify-content: space-between
+            }
+        </style>
+    </head>
+    <body>
+        <div class="box-center">
+            <h1>Login</h1>
+         
+                    <p>Không tìm thấy nhân viên</p>
+          
+            <form action="LoginServlet" method="post">
+                <div class="input-login"> 
+                    <div class="inline">
+                        Tên gian hàng: <input type="text" name="shopnametxt"/>
+                    </div>
+                    <br/>
+                    <br>
+                    <div class="inline">
+                        Tên đăng nhập: <input type="text" name="usernametxt"/>
+                    </div>                    
+                    <br/>
+                    <br>
+                    <div class="inline">
+                        Mật khẩu: <input type="password" name="passwordtxt"/>
+                    </div>                    
+                    <br/>
+                    <br>
+                    <div class="inline">
+                        <div>
+                            <input type="checkbox" name="rem" value="ON"/>
+                            Duy trì đăng nhập
+                        </div>
+                        <a href="#"> Quên mật khẩu</a>
+                    </div>                    
+                    <br>
+                    <br>
+                    <input type="submit" value="Login"/>
+                </div>
+            </form>
+        </div>
+    </body>
+</html>

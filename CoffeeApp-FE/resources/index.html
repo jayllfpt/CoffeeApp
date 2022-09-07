@@ -15,11 +15,11 @@
     <div class="row">
         <div class="col-md-7">
             <div>
-                <input type="radio"> <label>Tất cả</label>
+                <input type="radio" name="fillter-button"> <label>Tất cả</label>
           
-                <input type="radio"> <label>Đang sử dụng</label>
+                <input type="radio" name="fillter-button"> <label>Đang sử dụng</label>
             
-                <input type="radio"> <label>Còn trống</label>
+                <input type="radio" name="fillter-button"> <label>Còn trống</label>
                 <input class="searching_input" type="text" placeholder="Tìm món..."/>
             </div>
             
@@ -27,7 +27,6 @@
             <button class="tablinks" onclick="openCity(event, 'phongban')">Phòng bàn</button>
             <button class="tablinks" onclick="openCity(event, 'thucdon')">Thực đơn</button>
             </div>
-            
             <div id="phongban" class="tabcontent">
                 <div class="row">
                     <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6 item1">
@@ -119,6 +118,18 @@
             
             <div id="thucdon" class="tabcontent">
                 <div class="row">
+                    <div class="category">
+                        <button type="button" class="btn btn-outline-secondary category-item">
+                            Các loại trà</button>
+                        <button type="button" class="btn btn-outline-secondary category-item">
+                            Soda</button>
+                        <button type="button" class="btn btn-outline-secondary category-item">
+                            Yaourt</button>
+                        <button type="button" class="btn btn-outline-secondary category-item">
+                            Cocktail</button>
+                    </div>
+                </div>
+                <div class="row">
                     <div  class="col-lg-2 col-md-3 col-sm-4 item2">
                         <img src="images/hita-chay-tra-trai-cay-6.jpg" alt="" />
                         <h4>Chà chanh trái cây</h4>
@@ -144,9 +155,27 @@
                         <button>Add</button>
                     </div>
                     <div class="col-lg-2 col-md-3 col-sm-4 item2">
+                        <img src="images/tra-dau.jpg" alt="" />
+                        <h4>Trà dâu</h4>
+                        <h4 class="gia_tien">20k</h4>
+                        <button>Add</button>
+                    </div>
+                    <div class="col-lg-2 col-md-3 col-sm-4 item2">
                         <img src="images/soda-viet-quat.jpg" alt="" />
                         <h4>Soda việt quất</h4>
                         <h4 class="gia_tien">20k</h4>
+                        <button>Add</button>
+                    </div>
+                    <div class="col-lg-2 col-md-3 col-sm-4 item2">
+                        <img src="images/soda-kiwi.jpg" alt="" />
+                        <h4>Soda kiwi</h4>
+                        <h4 class="gia_tien">30k</h4>
+                        <button>Add</button>
+                    </div>
+                    <div class="col-lg-2 col-md-3 col-sm-4 item2">
+                        <img src="images/soda-dao.jpg" alt="" />
+                        <h4>Soda đào</h4>
+                        <h4 class="gia_tien">25k</h4>
                         <button>Add</button>
                     </div>
                     <div class="col-lg-2 col-md-3 col-sm-4 item2">
@@ -155,9 +184,40 @@
                         <h4 class="gia_tien">50k</h4>
                         <button>Add</button>
                     </div>
+                    <div class="col-lg-2 col-md-3 col-sm-4 item2">
+                        <img src="images/yaourt-xoai.jpg" alt="" />
+                        <h4>Yaourt xoài</h4>
+                        <h4 class="gia_tien">45k</h4>
+                        <button>Add</button>
+                    </div>
+                    <div class="col-lg-2 col-md-3 col-sm-4 item2">
+                        <img src="images/yaourt-nep-cam.jpg" alt="" />
+                        <h4>Yaourt nếp cẩm</h4>
+                        <h4 class="gia_tien">35k</h4>
+                        <button>Add</button>
+                    </div>
+                    <div class="col-lg-2 col-md-3 col-sm-4 item2">
+                        <img src="images/cocktail-negroni.jpg" alt="" />
+                        <h4>Cocktail Negroni</h4>
+                        <h4 class="gia_tien">75k</h4>
+                        <button>Add</button>
+                    </div>
+                    <div class="col-lg-2 col-md-3 col-sm-4 item2">
+                        <img src="images/cocktail-whickey-sour.jpg" alt="" />
+                        <h4>Cocktail Whiskey Sour</h4>
+                        <h4 class="gia_tien">85k</h4>
+                        <button>Add</button>
+                    </div>
+                    <div class="col-lg-2 col-md-3 col-sm-4 item2">
+                        <img src="images/cocktail-daiquiri.jpg" alt="" />
+                        <h4>Cocktail Daiquiri</h4>
+                        <h4 class="gia_tien">55k</h4>
+                        <button>Add</button>
+                    </div>
                 </div>
             </div>
         </div> 
+        
         <div class="col-md-5">
           
             <div class="tab">
@@ -174,5 +234,8 @@
         </div>
     </div>   
     <script src="js/index.js"></script>
+    <script>    
+        openCity(event, 'phongban');
+    </script>
 </body>
 </html>

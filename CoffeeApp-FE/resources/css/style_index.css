@@ -91,6 +91,13 @@ body{
   .searching_input{
     float: right;
   }
-
+  .category-item{
+    margin-top: 10px;
+    margin-left: 20px;
+    background-color: rgb(141, 171, 237);
+    border: 1px solid white;
+    border-radius: 20px;
+    color: rgb(255, 255, 255);
+  }
 
   
