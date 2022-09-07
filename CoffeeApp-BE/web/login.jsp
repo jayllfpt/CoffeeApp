@@ -36,21 +36,6 @@
     <body>
         <div class="box-center">
             <h1>Login</h1>
-            <% 
-                String checkShop = (String)request.getAttribute("checkShop");
-                if(checkShop=="false"){ %> 
-                    <p>Không tìm thấy tên Shop</p>
-            <%
-                }
-                String checkAcc = (String)request.getAttribute("checkAcc");
-                if (checkAcc!=null && checkShop == null){
-                    if(checkAcc=="false"){ %> 
-                    <p>Không tìm thấy nhân viên</p>
-            <%
-                    }
-                }
-
-            %>
             <form action="LoginServlet" method="post">
                 <div class="input-login"> 
                     <div class="inline">
@@ -67,6 +52,21 @@
                         Mật khẩu: <input type="password" name="passwordtxt"/>
                     </div>                    
                     <br/>
+                    <%
+                        String checkShop = (String) request.getAttribute("checkShop");
+                        if (checkShop == "false") { %> 
+                    <p>Không tìm thấy tên Shop</p>
+                    <%
+                        }
+                        String checkAcc = (String) request.getAttribute("checkAcc");
+                        if (checkAcc != null && checkShop == null) {
+                            if (checkAcc == "false") { %> 
+                    <p>Không tìm thấy nhân viên</p>
+                    <%
+                            }
+                        }
+
+                    %>
                     <br>
                     <div class="inline">
                         <div>
@@ -75,7 +75,6 @@
                         </div>
                         <a href="#"> Quên mật khẩu</a>
                     </div>                    
-                    <br>
                     <br>
                     <input type="submit" value="Login"/>
                 </div>
