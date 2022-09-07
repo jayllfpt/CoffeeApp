@@ -25,8 +25,8 @@ public class DBUtils {
 //    }
     
         public static Connection makeConnection() throws Exception{
-            Connection cn= null;
-            String url = "jdbc:sqlserver://cafpthcm.database.windows.net;databaseName=CoffeeApp";
+            Connection cn= null;                                                                //port
+            String url = "jdbc:sqlserver://cafpthcm.clfv7tuyvf5x.ap-northeast-1.rds.amazonaws.com:1433;databaseName=CoffeeApp";
             String username = "cadbadmin";
             String password = "adminCADB2002";
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
