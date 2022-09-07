@@ -65,9 +65,9 @@ INSERT INTO Items(itemID, itemName, itemDescription, itemPrice, imgPath, itemSta
 SET IDENTITY_INSERT Items OFF
 
 SET IDENTITY_INSERT Accounts ON
-INSERT INTO Accounts(empID, empFName, empLName, empPhone, empAddress, username, password, empStatus, shopID, roleID) VALUES (1, 'Ngo', 'Quang', '01111111111', 'HCMC', 'quangnh', '12345678', 'working', 1, 1);
+INSERT INTO Accounts(empID, empFName, empLName, empPhone, empAddress, username, password, empStatus, shopID, roleID) VALUES (1, 'Ngo', 'Quang', '01111111111', 'HCMC', 'quang', '1', 'working', 1, 1);
 INSERT INTO Accounts(empID, empFName, empLName, empPhone, empAddress, username, password, empStatus, shopID, roleID) VALUES (2, 'Tran', 'Vinh', '02222222222', 'HCMC', 'vinhtc', '12345678', 'working', 1, 2);
-INSERT INTO Accounts(empID, empFName, empLName, empPhone, empAddress, username, password, empStatus, shopID, roleID) VALUES (3, 'Pham', 'Trai', '03333333333', 'HCMC', 'traippn', '12345678', 'working', 1, 3);
+INSERT INTO Accounts(empID, empFName, empLName, empPhone, empAddress, username, password, empStatus, shopID, roleID) VALUES (3, 'Pham', 'Trai', '03333333333', 'HCMC', 'trai', '1', 'working', 1, 3);
 INSERT INTO Accounts(empID, empFName, empLName, empPhone, empAddress, username, password, empStatus, shopID, roleID) VALUES (4, 'Trinh', 'Linh', '04444444444', 'HCMC', 'linhtk', '12345678', 'working', 1, 4);
 SET IDENTITY_INSERT Accounts OFF
 
