@@ -34,8 +34,8 @@ public class DBUtils {
 //        return cn;
 
         Connection cn = null;
-        String instanceName = "cafpthcm.cpwiogphnkjy.ap-southeast-1.rds.amazonaws.com";
-        String uid = "cadbadmin";
+        String instanceName = "awseb-e-3hmpin9b2k-stack-awsebrdsdatabase-ceyzt5dzixux.cpwiogphnkjy.ap-southeast-1.rds.amazonaws.com:1433";
+        String uid = "cafpthcm1";
         String pwd = "adminCADB2002";
         String db = "CoffeeApp";
         String driver = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
