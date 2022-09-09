@@ -34,7 +34,7 @@ public class DBUtils {
 //        return cn;
 
         Connection cn = null;
-        String instanceName = "cafpthcm1.cpwiogphnkjy.ap-southeast-1.rds.amazonaws.com";
+        String instanceName = "cafpthcm.cpwiogphnkjy.ap-southeast-1.rds.amazonaws.com";
         String uid = "cadbadmin";
         String pwd = "adminCADB2002";
         String db = "CoffeeApp";
