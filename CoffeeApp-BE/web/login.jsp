@@ -15,6 +15,8 @@
                 display: flex;
                 align-items: center;
                 justify-content: center;
+                
+                
             }
             .box-center{
                 margin-top: 150px;
@@ -22,7 +24,8 @@
                 box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
                 text-align: center;
                 width: 350px;
-                height: 370px;                
+                height: 370px;     
+                background-color: rgb(255, 255, 255);           
             }
             .input-login{
                 padding: 0px 30px;
@@ -30,6 +33,29 @@
             .inline{
                 display: flex;
                 justify-content: space-between
+            }
+            .notify{
+                background-color: rgba(201, 76, 76, 0.2);
+                margin: 0%;
+                padding: 5px 0px;
+                
+            }
+            body::after{
+                content : "";
+                display: block;
+                position: absolute;
+                top: 0;
+                left: 0;
+                background-image: url(images/mat-thang-Quang.jpg); 
+                background-size: 100%;
+                width: 100%;
+                height: 100%;
+                opacity : 0.5;
+                z-index: -1;
+                
+            }
+            body img{
+                position: relative;
             }
         </style>
     </head>
@@ -55,13 +81,13 @@
                     <%
                         String checkShop = (String) request.getAttribute("checkShop");
                         if (checkShop == "false") { %> 
-                    <p>Không tìm thấy tên Shop</p>
+                    <p class="notify">Không tìm thấy tên Shop</p>
                     <%
                         }
                         String checkAcc = (String) request.getAttribute("checkAcc");
                         if (checkAcc != null && checkShop == null) {
                             if (checkAcc == "false") { %> 
-                    <p>Không tìm thấy nhân viên</p>
+                    <p class="notify">Không tìm thấy nhân viên</p>
                     <%
                             }
                         }
