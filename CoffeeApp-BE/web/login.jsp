@@ -46,13 +46,12 @@
                 position: absolute;
                 top: 0;
                 left: 0;
-                background-image: url(images/mat-thang-Quang.jpg); 
+                background-image: url(images/background-login.jpg); 
                 background-size: 100%;
                 width: 100%;
                 height: 100%;
-                opacity : 0.5;
+                opacity : 1;
                 z-index: -1;
-                
             }
             body img{
                 position: relative;
